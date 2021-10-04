@@ -42,4 +42,38 @@ import {ListaDeNotas} from "./components/ListaDeNotas"
 </form>
 <ListaDeNotas/>
 ```
-- O componente será renderizado em ```<ListaDeNotas/>```;
+- O componente será renderizado em ```<ListaDeNotas/>```;  
+## Praticando e utilizando plugins:  
+- Separa o projeto em componentes;
+
+## Integrando o JS:  
+- ```{}``` Serve para colocar um código js no .jsx;  
+```
+render(){
+	return(
+		{console.log('Hello World')}
+	);
+}
+```
+- **Loop no React:**  
+- Uma função for não funciona no React, precisa-se passar uma array e varrêlo com funções;  
+- **Array.of()** Método que cria um array;  
+```
+{Array.of("Trabalho", "Trabalho", "Estudos")
+}
+```
+- **.map()** Função que modifica Arrays;  
+```
+return (
+	<ul>
+		{Array.of("Trabalho", "Trabalho", "Estudos").map((item)=>{
+			return (
+				<li>
+					<div>{item}</div>
+					<CardNota/>
+				</li>
+			);
+		})}
+	</ul>
+);
+```
