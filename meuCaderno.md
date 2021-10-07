@@ -77,3 +77,31 @@ return (
 	</ul>
 );
 ```
+
+# Aula03 - Estilizando componentes
+## Estilizando Componentes:  
+- **Key** Sempre que se renderiza um loop no react ele necessita de uma key no elemento para caso haja uma alteração posterior neste elemento específico, apenas ele será reenderizado; (funciona sem, mas o console acusa erro)  
+```
+<li key={index}> // Index veio do map(), key não aparece no elements devTool
+	<CardNota/>
+</li>
+```
+- **class** Devido a declaração de uma classe também se chamar class, no react quando queremos colocar uma classe em um elemento chamamos de ```className```;  
+```
+<section className="card-nota"> //No devTools continua class
+```
+- Para importar um arquivo css usa-se o ```import```;  
+```
+import "./estilo.css"
+```
+## Conflito de nomes:
+- Uma classe criada se torna pública pois todos os arquivos serão renderizados em um só;  
+- Segundo o professor é interessante sempre começar a classe com o nome do componente e depois o que ela significa:  
+```
+.card-nota_texto{
+}
+```
+
+## Organizando o projeto:  
+- Para evitar que na importação duplique o nome do componente, o professor colocar em cada pasta um index.js que exporta o componente;  
+- REINICIE O SERVIDOR! se não não irá funcionar.  
