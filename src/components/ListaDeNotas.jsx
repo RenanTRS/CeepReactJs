@@ -1,41 +1,23 @@
-import React from "react";
+import React, {useContext} from "react";
+import { NotasContext } from "../App";
 import { CardNota } from "./CardNota";
 
 import "../assets/listaDeNotas.css";
 
 
 export function ListaDeNotas(){
+  const {nota} = useContext(NotasContext);
+
   return (
     <ul className="lista-notas">
-      {Array.of("Trabalho", "Trabalho", "Estudos").map((categoria, index)=>{
-        return (
-          <li className="lista-notas_item" key={index}>
-            <CardNota />
-          </li>
+      {nota.map((value, key)=>{
+         return(
+            <li className="lista-notas_item" key={key}>
+              <CardNota task={value.task} text={value.text}/>
+            </li>
         );
       })}
 
     </ul>
   );
 }
-
-
-/*
-class ListaDeNotas extends Component {
-  render() {
-    return (
-      <ul className="lista-notas">
-        {Array.of("Trabalho", "Trabalho", "Estudos").map((categoria, index) =>{
-          return (
-            <li className="lista-notas_item" key={index}>
-              <CardNota/>
-            </li>
-          );
-        })}
-      </ul>
-    );
-  }
-}
-
-export default ListaDeNotas;
-*/
