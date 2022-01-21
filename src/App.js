@@ -12,9 +12,12 @@ export const NotasContext = createContext({});
 function App (){
 
   const [nota, setNota] = useState([]);
+  const [categorias, setCategorias] = useState([]);
   const value = {
     nota,
-    setNota
+    setNota,
+    categorias,
+    setCategorias
   } 
   return (
     <section className="conteudo">
