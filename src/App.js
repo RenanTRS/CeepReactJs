@@ -2,6 +2,7 @@ import React, {useState, createContext} from 'react';
 
 import { FormularioCadastro } from './components/FormularioCadastro';
 import { ListaDeNotas } from './components/ListaDeNotas';
+import { ListaDeCategorias } from './components/ListaDeCategorias';
 
 import './assets/index.css';
 import "./assets/App.css";
@@ -19,7 +20,10 @@ function App (){
     <section className="conteudo">
       <NotasContext.Provider value={value}>
         <FormularioCadastro/>
-        <ListaDeNotas />
+        <main className="conteudo-principal">
+          <ListaDeCategorias />
+          <ListaDeNotas />
+        </main>
       </NotasContext.Provider>
     </section>
   );
