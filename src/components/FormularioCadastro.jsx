@@ -7,7 +7,8 @@ import "../assets/formularioCadastro.css";
 export function FormularioCadastro(){
     const [titulo, setTitulo] = useState('');
     const [texto, setTexto] = useState('');
-    
+    const [categoria, setCategoria] = useState('Sem categoria');
+
     function handleMudancaTitulo(event){
         const {value} = event.target;
         setTitulo(value)
@@ -15,6 +16,10 @@ export function FormularioCadastro(){
     function handleMudancaTexto(event){
         const {value} = event.target;
         setTexto(value);
+    }
+    function handleChangeCategoria(event){
+        const {value} = event.target;
+        setCategoria(value);
     }
     const {nota, setNota, categorias} = useContext(NotasContext);
     
@@ -27,7 +32,7 @@ export function FormularioCadastro(){
             setTexto(event.target.value);
         }
 
-        const task = {task: titulo, text: texto};
+        const task = {task: titulo, text: texto, categoria: categoria};
         
         setNota([...nota, task]);
         setTitulo('');
@@ -35,7 +40,8 @@ export function FormularioCadastro(){
     }
     return(
         <form className="form-cadastro" onSubmit={criarNota}>
-            <select className="form-cadastro_input">
+            <select className="form-cadastro_input" onChange={handleChangeCategoria} >
+                <option>Sem categoria</option>
                 {categorias.map((categoria, key) =>{
                     return(
                         <option key={key}>{categoria}</option>

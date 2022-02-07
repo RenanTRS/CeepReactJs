@@ -20,7 +20,7 @@ export function ListaDeNotas(){
       {nota.map((value, key)=>{
          return(
             <li className="lista-notas_item" key={key}>
-              <CardNota task={value.task} text={value.text} number={key} deleteCard={deleteCard}/>
+              <CardNota task={value.task} text={value.text} number={key} categoria={value.categoria} deleteCard={deleteCard}/>
             </li>
         );
       })}
