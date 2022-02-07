@@ -16,7 +16,7 @@ export function FormularioCadastro(){
         const {value} = event.target;
         setTexto(value);
     }
-    const {nota, setNota} = useContext(NotasContext);
+    const {nota, setNota, categorias} = useContext(NotasContext);
     
     function criarNota(event){
         event.preventDefault();
@@ -35,6 +35,13 @@ export function FormularioCadastro(){
     }
     return(
         <form className="form-cadastro" onSubmit={criarNota}>
+            <select className="form-cadastro_input">
+                {categorias.map((categoria, key) =>{
+                    return(
+                        <option key={key}>{categoria}</option>
+                    )
+                })}
+            </select>
             <input type="text" name="titulo" placeholder="Título" className="form-cadastro_input" value={titulo} onChange={handleMudancaTitulo} />
             <textarea rows={15} name="texto" placeholder="Escreva sua nota..." className="form-cadastro_input"
             value={texto} onChange={handleMudancaTexto}></textarea>
